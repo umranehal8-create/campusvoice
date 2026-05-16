@@ -1,0 +1,119 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.ad-container { min-height: 100vh; background: #f0fdf4; font-family: sans-serif; }
+
+/* NAVBAR */
+.ad-navbar {
+  background: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #bbf7d0;
+}
+.ad-brand { font-size: 22px; font-weight: 800; color: #16a34a; }
+.ad-admin-tag {
+  font-size: 12px;
+  background: #16a34a;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.ad-nav-right { display: flex; align-items: center; gap: 16px; }
+.ad-username { font-size: 15px; color: #374151; font-weight: 500; }
+.ad-logout-btn {
+  padding: 8px 18px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* MAIN */
+.ad-main { padding: 32px; max-width: 1300px; margin: 0 auto; }
+
+/* STATS */
+.ad-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.ad-stat-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  border-left: 5px solid;
+}
+.ad-stat-total { border-color: #6366f1; }
+.ad-stat-pending { border-color: #f59e0b; }
+.ad-stat-progress { border-color: #3b82f6; }
+.ad-stat-resolved { border-color: #10b981; }
+.ad-stat-number { font-size: 36px; font-weight: 800; color: #1e1b4b; }
+.ad-stat-label { font-size: 13px; color: #6b7280; margin-top: 4px; font-weight: 500; }
+
+/* TABLE SECTION */
+.ad-table-section { background: white; border-radius: 14px; padding: 28px; }
+.ad-table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.ad-section-title { font-size: 20px; font-weight: 700; color: #1e1b4b; }
+
+/* FILTERS */
+.ad-filters { display: flex; gap: 8px; }
+.ad-filter-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #d1d5db;
+  background: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #6b7280;
+}
+.ad-filter-btn.active { background: #16a34a; color: white; border-color: #16a34a; }
+
+/* TABLE */
+.ad-table-wrapper { overflow-x: auto; }
+.ad-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ad-table th {
+  background: #f0fdf4;
+  color: #16a34a;
+  font-weight: 700;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid #bbf7d0;
+}
+.ad-table td { padding: 12px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; vertical-align: middle; }
+.ad-table tr:hover { background: #f9fafb; }
+.ad-td-title { font-weight: 600; color: #1e1b4b; max-width: 150px; }
+.ad-td-desc { color: #6b7280; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* STATUS SELECT */
+.ad-status-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+.ad-status-pending { background: #fef9c3; color: #92400e; border-color: #fcd34d; }
+.ad-status-in-progress { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+.ad-status-resolved { background: #dcfce7; color: #166534; border-color: #86efac; }
+
+/* DELETE */
+.ad-delete-btn {
+  padding: 6px 14px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ad-delete-btn:hover { background: #dc2626; color: white; }
+
+.ad-loading, .ad-empty { color: #9ca3af; font-size: 14px; text-align: center; margin-top: 40px; }

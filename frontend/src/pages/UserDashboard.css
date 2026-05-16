@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.ud-container {
+  min-height: 100vh;
+  background: #f5f3ff;
+  font-family: sans-serif;
+}
+
+/* NAVBAR */
+.ud-navbar {
+  background: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e7ff;
+}
+.ud-brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: #6366f1;
+}
+.ud-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ud-username {
+  font-size: 15px;
+  color: #374151;
+  font-weight: 500;
+}
+.ud-logout-btn {
+  padding: 8px 18px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* MAIN */
+.ud-main {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* STATS */
+.ud-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.ud-stat-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  border-left: 5px solid;
+}
+.ud-stat-total {
+  border-color: #6366f1;
+}
+.ud-stat-pending {
+  border-color: #f59e0b;
+}
+.ud-stat-progress {
+  border-color: #3b82f6;
+}
+.ud-stat-resolved {
+  border-color: #10b981;
+}
+.ud-stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+.ud-stat-label {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* CONTENT */
+.ud-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.ud-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.ud-form-section {
+  background: white;
+  border-radius: 14px;
+  padding: 28px;
+}
+.ud-input-group {
+  margin-bottom: 16px;
+}
+.ud-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.ud-input,
+.ud-textarea,
+.ud-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1f2937;
+  outline: none;
+  transition: border 0.2s;
+}
+.ud-input:focus,
+.ud-textarea:focus,
+.ud-select:focus {
+  border-color: #6366f1;
+}
+.ud-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.ud-file-input {
+  width: 100%;
+  font-size: 13px;
+  color: #6b7280;
+}
+.ud-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.ud-submit-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+.ud-error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.ud-success {
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+/* COMPLAINTS LIST */
+.ud-list-section {
+  background: white;
+  border-radius: 14px;
+  padding: 28px;
+  overflow-y: auto;
+  max-height: 700px;
+}
+.ud-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ud-card {
+  border: 1.5px solid #e0e7ff;
+  border-radius: 12px;
+  padding: 16px;
+}
+.ud-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.ud-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+.ud-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.ud-badge-pending {
+  background: #fef9c3;
+  color: #92400e;
+}
+.ud-badge-in-progress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.ud-badge-resolved {
+  background: #dcfce7;
+  color: #166534;
+}
+.ud-card-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+.ud-card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+.ud-card-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  max-height: 150px;
+  object-fit: cover;
+}
+.ud-loading,
+.ud-empty {
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
