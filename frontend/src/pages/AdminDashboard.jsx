@@ -45,7 +45,7 @@ const AdminDashboard = () => {
     if (!window.confirm("Delete this complaint?")) return;
     try {
       await axios.delete(
-        `http://localhost:3000/api/complaint/delete-complaint/${id}`,
+        `https://campusvoice-backend-0myw.onrender.com/api/complaint/delete-complaint/${id}`,
         { withCredentials: true }
       );
       fetchAllComplaints();

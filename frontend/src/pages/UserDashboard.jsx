@@ -27,7 +27,7 @@ const UserDashboard = () => {
   async function fetchMyComplaints() {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/complaint/get-my-complaints",
+  "https://campusvoice-backend-0myw.onrender.com/api/complaint/get-my-complaints",
         { withCredentials: true }
       );
       setComplaints(res.data.myComplaints || []);
