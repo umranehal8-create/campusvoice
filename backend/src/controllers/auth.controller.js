@@ -25,11 +25,13 @@ async function registerUser(req, res) {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.SECRET_KEY,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.cookie("token", token, {
       httpOnly: true,
+      sameSite: "none",
+      secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -67,11 +69,13 @@ async function loginUser(req, res) {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       process.env.SECRET_KEY,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.cookie("token", token, {
       httpOnly: true,
+      sameSite: "none",
+      secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
