@@ -17,8 +17,8 @@ const AdminDashboard = () => {
   async function fetchAllComplaints() {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/complaint/get-all-complaints",
-        { withCredentials: true }
+        `${import.meta.env.VITE_API_URL}/api/complaint/get-all-complaints`,
+        { withCredentials: true },
       );
       setComplaints(res.data.allComplaints || []);
     } catch (err) {
@@ -31,9 +31,9 @@ const AdminDashboard = () => {
   async function handleStatusChange(id, status) {
     try {
       await axios.put(
-        `http://localhost:3000/api/complaint/updated-status/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/complaint/updated-status/${id}`,
         { status },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       fetchAllComplaints();
     } catch (err) {
@@ -45,8 +45,8 @@ const AdminDashboard = () => {
     if (!window.confirm("Delete this complaint?")) return;
     try {
       await axios.delete(
-        `https://campusvoice-backend-0myw.onrender.com/api/complaint/delete-complaint/${id}`,
-        { withCredentials: true }
+        `${import.meta.env.VITE_API_URL}/api/complaint/delete-complaint/${id}`,
+        { withCredentials: true },
       );
       fetchAllComplaints();
     } catch (err) {
@@ -59,23 +59,30 @@ const AdminDashboard = () => {
     navigate("/");
   }
 
-  const filtered = filter === "all"
-    ? complaints
-    : complaints.filter((c) => c.status === filter);
+  const filtered =
+    filter === "all"
+      ? complaints
+      : complaints.filter((c) => c.status === filter);
 
   const total = complaints.length;
   const pending = complaints.filter((c) => c.status === "pending").length;
-  const inProgress = complaints.filter((c) => c.status === "in-progress").length;
+  const inProgress = complaints.filter(
+    (c) => c.status === "in-progress",
+  ).length;
   const resolved = complaints.filter((c) => c.status === "resolved").length;
 
   return (
     <div className="ad-container">
       {/* NAVBAR */}
       <div className="ad-navbar">
-        <div className="ad-brand">🎓 CampusVoice <span className="ad-admin-tag">Admin</span></div>
+        <div className="ad-brand">
+          🎓 CampusVoice <span className="ad-admin-tag">Admin</span>
+        </div>
         <div className="ad-nav-right">
           <span className="ad-username">👋 {user?.username}</span>
-          <button className="ad-logout-btn" onClick={handleLogout}>Logout</button>
+          <button className="ad-logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
 
@@ -147,7 +154,9 @@ const AdminDashboard = () => {
                         <select
                           className={`ad-status-select ad-status-${c.status}`}
                           value={c.status}
-                          onChange={(e) => handleStatusChange(c._id, e.target.value)}
+                          onChange={(e) =>
+                            handleStatusChange(c._id, e.target.value)
+                          }
                         >
                           <option value="pending">Pending</option>
                           <option value="in-progress">In Progress</option>

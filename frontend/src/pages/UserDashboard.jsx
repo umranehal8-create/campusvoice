@@ -27,12 +27,12 @@ const UserDashboard = () => {
   async function fetchMyComplaints() {
     try {
       const res = await axios.get(
-  "https://campusvoice-backend-0myw.onrender.com/api/complaint/get-my-complaints",
-        { withCredentials: true }
+        `${import.meta.env.VITE_API_URL}/api/complaint/get-my-complaints`,
+        { withCredentials: true },
       );
       setComplaints(res.data.myComplaints || []);
     } catch (err) {
-        navigate("/")
+      navigate("/");
       console.log(err);
     } finally {
       setLoading(false);
@@ -56,13 +56,18 @@ const UserDashboard = () => {
       if (image) data.append("image", image);
 
       await axios.post(
-        "http://localhost:3000/api/complaint/create-complaint",
+        `${import.meta.env.VITE_API_URL}/api/complaint/create-complaint`,
         data,
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       setSuccess("Complaint submitted successfully!");
-      setFormData({ title: "", description: "", location: "", category: "other" });
+      setFormData({
+        title: "",
+        description: "",
+        location: "",
+        category: "other",
+      });
       setImage(null);
       fetchMyComplaints();
     } catch (err) {
@@ -79,7 +84,9 @@ const UserDashboard = () => {
 
   const total = complaints.length;
   const pending = complaints.filter((c) => c.status === "pending").length;
-  const inProgress = complaints.filter((c) => c.status === "in-progress").length;
+  const inProgress = complaints.filter(
+    (c) => c.status === "in-progress",
+  ).length;
   const resolved = complaints.filter((c) => c.status === "resolved").length;
 
   return (
@@ -89,7 +96,9 @@ const UserDashboard = () => {
         <div className="ud-brand">🎓 CampusVoice</div>
         <div className="ud-nav-right">
           <span className="ud-username">👋 {user?.username}</span>
-          <button className="ud-logout-btn" onClick={handleLogout}>Logout</button>
+          <button className="ud-logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </div>
 
@@ -127,7 +136,9 @@ const UserDashboard = () => {
                 className="ud-input"
                 placeholder="Brief title of your complaint"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
               />
             </div>
             <div className="ud-input-group">
@@ -136,7 +147,9 @@ const UserDashboard = () => {
                 className="ud-textarea"
                 placeholder="Describe your complaint in detail..."
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
               />
             </div>
             <div className="ud-input-group">
@@ -145,7 +158,9 @@ const UserDashboard = () => {
                 className="ud-input"
                 placeholder="e.g. Block A, Room 204"
                 value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, location: e.target.value })
+                }
               />
             </div>
             <div className="ud-input-group">
@@ -153,7 +168,9 @@ const UserDashboard = () => {
               <select
                 className="ud-select"
                 value={formData.category}
-                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, category: e.target.value })
+                }
               >
                 <option value="plumbing">Plumbing</option>
                 <option value="electrical">Electrical</option>
@@ -203,7 +220,11 @@ const UserDashboard = () => {
                       <span>🏷️ {c.category}</span>
                     </div>
                     {c.image && (
-                      <img className="ud-card-img" src={c.image} alt="complaint" />
+                      <img
+                        className="ud-card-img"
+                        src={c.image}
+                        alt="complaint"
+                      />
                     )}
                   </div>
                 ))}

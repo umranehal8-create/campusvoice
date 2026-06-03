@@ -22,7 +22,7 @@ const Login = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "https://campusvoice-backend-0myw.onrender.com/api/auth/login",
+      `${import.meta.env.VITE_API_URL}/api/auth/login`,
         { email, password },
         { withCredentials: true },
       );
